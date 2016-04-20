@@ -1,0 +1,5 @@
+<ul id="bank">
+  <li><%= button_to "-", negative_cigs_path, method: :post %></li>
+  <li><%= button_to "+", positive_cigs_path, method: :post %></li>
+</ul>
+<%= '%.2f' % @total %>

@@ -1,0 +1,10 @@
+<%= form_for @pack do |f| %>
+<div class="row">
+  <%= f.label :price_pack, "Price per pack locally: " %>
+  <%= f.text_field :price_pack %>
+</div>
+
+<div>
+  <%= f.submit "Enter" %>
+</div>
+<% end %>
