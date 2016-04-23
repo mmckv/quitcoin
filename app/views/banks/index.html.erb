@@ -1,5 +1,47 @@
-<ul id="bank">
+<div id="inline-content">
   <li><%= button_to "-", negative_cigs_path, method: :post %></li>
   <li><%= button_to "+", positive_cigs_path, method: :post %></li>
-</ul>
+</div>
 <%= '%.2f' % @total %>
+
+<h3>PROGRESS</h3>
+
+<div class="span_4 column">
+  <ul>
+    <li><strong>TODAY</strong></li>
+    <li>Smoked: <%= @smoked_today %></li>
+    <li>Resisted: <%= @nonsmoked_today %></li>
+    <li>Net: $<%= "%.2f" % (@saved_today - @spent_today) %></li>
+  </ul>
+</div>
+
+<div class="span_4 column">
+  <ul>
+    <li><strong>THIS WEEK</strong></li>
+    <li>Smoked: <%= @smoked_week %></li>
+    <li>Resisted: <%= @nonsmoked_week %></li>
+    <li>Net: $<%= "%.2f" % (@saved_week - @spent_week) %></li>
+  </ul>
+</div>
+
+<div class="span_4 column">
+  <ul>
+    <li><strong>ALL TIME</strong></li>
+    <li>Smoked: <%= @smoked_alltime %></li>
+    <li>Resisted: <%= @nonsmoked_alltime %></li>
+    <li>Net: $<%= "%.2f" % (@saved_alltime - @spent_alltime) %></li>
+  </ul>
+</div>
+
+  <div class="span_3 column">
+    Weeks: <%= @seconds / 604800 %>
+  </div>
+    <div class="span_3 column">
+      Days: <%= @seconds / 86400 %>
+    </div>
+      <div class="span_3 column">
+        Hours: <%= @seconds / 3600 %>
+      </div>
+        <div class="span_3 column">
+          Minutes: <%= @seconds / 60 %>
+        </div>

@@ -1,6 +1,7 @@
 class PacksController < ApplicationController
   def new
     @pack = Pack.new
+    @total = current_user.total
   end
 
   def create
@@ -29,6 +30,7 @@ class PacksController < ApplicationController
 
   def edit
     @pack = Pack.find(params[:id])
+    @total = current_user.total
   end
 
   def update
