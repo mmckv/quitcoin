@@ -39,5 +39,9 @@ class BanksController < ApplicationController
     @nonsmoked_alltime = Bank.nonsmoked_alltime(current_user)
 
     @seconds = Bank.time_seconds(current_user)
+    @minutes = Bank.time_seconds(current_user)/60
+    @hours = Bank.time_seconds(current_user)/3600
+    @days = Bank.time_seconds(current_user)/86400
+    @weeks = Bank.time_seconds(current_user)/604800
   end
 end

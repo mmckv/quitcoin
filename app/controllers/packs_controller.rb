@@ -23,7 +23,7 @@ class PacksController < ApplicationController
       flash[:notice] = "Pack updated!"
       redirect_to banks_path
     else
-      flash[:error] = @pack.errors.full_messages.join" ,"
+      flash[:notice] = "Please enter the price of a pack of cigarettes."
       redirect_to new_pack_path
     end
   end
