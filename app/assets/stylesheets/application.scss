@@ -12,9 +12,54 @@
  *
  *= require_tree .
  *= require_self
- *= require foundation_and_overrides
+ *= require foundation
 
  */
-#bank *{
+#inline-content *{
   display: inline;
+}
+
+.nav-left {
+  float: left;
+}
+
+.nav-right {
+  float: right;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+
+.row {
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.column {
+    float: left;
+    padding: 0 15px;
+}
+
+.span_4 {
+    width: 33.3333%;
+}
+
+.span_3 {
+    width: 25%;
 }

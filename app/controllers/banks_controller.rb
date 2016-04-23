@@ -1,14 +1,15 @@
 class BanksController < ApplicationController
   def index
     if current_user
+      @stats = generatestats
       @current_pack = current_user.packs.find_by(active: true)
       if @current_pack.nil?
-        flash[:notice] = "Add your pack price!"
+        flash[:notice] = "Please enter your local price for a pack of cigarettes."
         redirect_to new_pack_path
       end
         @total = current_user.total
     else
-      flash[:error] = "Please sign in!"
+      flash[:error] = "Please sign in."
       redirect_to new_user_session_path
     end
   end
@@ -19,5 +20,29 @@ class BanksController < ApplicationController
     params.require(:bank).permit(:value,
                                 :user_id,
                                 :phrase_id)
+  end
+
+  def generatestats
+    @spent_today = Bank.money_spent_today(current_user)
+    @smoked_today = Bank.smoked_today(current_user)
+    @saved_today = Bank.money_saved_today(current_user)
+    @nonsmoked_today = Bank.nonsmoked_today(current_user)
+
+    @spent_week = Bank.money_spent_week(current_user)
+    @saved_week = Bank.money_saved_week(current_user)
+    @smoked_week = Bank.smoked_week(current_user)
+    @nonsmoked_week = Bank.nonsmoked_week(current_user)
+
+    @spent_alltime = Bank.money_spent_alltime(current_user)
+    @saved_alltime = Bank.money_saved_alltime(current_user)
+    @smoked_alltime = Bank.smoked_alltime(current_user)
+    @nonsmoked_alltime = Bank.nonsmoked_alltime(current_user)
+
+    @seconds = Bank.time_seconds(current_user)
+    #
+    # @minutes = Bank.minutes(current_user)
+    # @hours = Bank.hours(current_user)
+    # @days = Bank.days(current_user)
+    # @weeks = Bank.weeks(current_user)
   end
 end
