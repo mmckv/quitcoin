@@ -2,6 +2,9 @@ require "rails_helper"
 
 feature "user logs into account" do
   let!(:user) { FactoryGirl.create(:user) }
+  let!(:bank) { FactoryGirl.create(:bank, value: -0.25) }
+  let!(:bank2) { FactoryGirl.create(:bank) }
+  let!(:bank3) { FactoryGirl.create(:bank) }
 
   scenario "successfully logs in" do
     visit user_session_path
@@ -9,7 +12,7 @@ feature "user logs into account" do
     fill_in "Password", with: user.password
     click_button "Log in"
 
-    expect(page).to have_content("Price per pack locally:")
+    expect(page).to have_content("How much do you pay for a pack of cigarettes?")
   end
 
   scenario "submits blank form" do
