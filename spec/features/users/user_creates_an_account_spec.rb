@@ -1,6 +1,10 @@
 require "rails_helper"
 
 feature "user creates an account" do
+  let!(:bank) { FactoryGirl.create(:bank, value: -0.25) }
+  let!(:bank2) { FactoryGirl.create(:bank) }
+  let!(:bank3) { FactoryGirl.create(:bank) }
+
   scenario "successfully creates an account" do
     visit new_user_registration_path
     fill_in "Email", with: "fakeuser@gmail.com"
@@ -8,7 +12,7 @@ feature "user creates an account" do
     fill_in "Password confirmation", with: "12345678"
     click_button "Sign up"
 
-    expect(page).to have_content("Price per pack locally:")
+    expect(page).to have_content("How much do you pay for a pack of cigarettes?")
   end
 
   scenario "submits form with too short password" do

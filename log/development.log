@@ -25119,3 +25119,19 @@ Processing by BanksController#index as HTML
   [1m[35mBank Load (1.1ms)[0m  SELECT "banks".* FROM "banks" WHERE "banks"."user_id" = $1  [["user_id", 3]]
   Rendered banks/index.html.erb within layouts/application (1.9ms)
 Completed 200 OK in 182ms (Views: 138.5ms | ActiveRecord: 11.8ms)
+  [1m[36m (755.9ms)[0m  [1mDROP DATABASE IF EXISTS "quitcoin_test"[0m
+  [1m[35m (2004.4ms)[0m  CREATE DATABASE "quitcoin_test" ENCODING = 'unicode'
+  [1m[36mSQL (45.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (114.5ms)[0m  CREATE TABLE "banks" ("id" serial primary key, "value" decimal, "phrase_id" integer, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (26.5ms)[0m  [1mCREATE TABLE "packs" ("id" serial primary key, "price_pack" decimal DEFAULT 0.0 NOT NULL, "active" boolean DEFAULT 'f' NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (9.6ms)[0m  CREATE TABLE "phrases" ("id" serial primary key, "quote" character varying, "author" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (11.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.5ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")
+  [1m[36m (2.1ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (2.2ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160419195803')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160419152036')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160419175442')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160419182447')

@@ -12,9 +12,14 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
       <ul class="menu">
-        <li><%="Bank $" "%.2f" % @total if current_user %></li>
-        <li><%= link_to "Progress", "#" if current_user %></li>
+        <li class="bank"><%="Bank $" "%.2f" % @total if current_user %></li>
+          <% if controller_name == "banks" && action_name == "index" %>
+            <li><%= link_to "Progress", "#" if current_user %></li>
+          <% else %>
+          <% end %>
       </ul>
 
         <ul class="dropdown menu" data-dropdown-menu>
@@ -28,9 +33,6 @@
               </ul>
           </li>
         </ul>
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
 
       <div class = row column>
         <%= yield %>
