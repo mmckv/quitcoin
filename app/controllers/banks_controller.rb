@@ -39,10 +39,5 @@ class BanksController < ApplicationController
     @nonsmoked_alltime = Bank.nonsmoked_alltime(current_user)
 
     @seconds = Bank.time_seconds(current_user)
-    #
-    # @minutes = Bank.minutes(current_user)
-    # @hours = Bank.hours(current_user)
-    # @days = Bank.days(current_user)
-    # @weeks = Bank.weeks(current_user)
   end
 end
