@@ -10,12 +10,12 @@ class Bank < ActiveRecord::Base
 
   def self.money_spent_today(user)
     @money_spent_today = (user.banks.where("DATE(created_at) = ?", Date.today).where("value < 0").sum(:value)).abs
-    return @money_spent_today
+    @money_spent_today
   end
 
   def self.smoked_today(user)
     @smoked_today_total = user.banks.where("DATE(created_at) = ?", Date.today).where("value < 0").count
-    return @smoked_today_total
+    @smoked_today_total
   end
 
   def self.money_saved_today(user)
@@ -25,55 +25,55 @@ class Bank < ActiveRecord::Base
 
   def self.nonsmoked_today(user)
     @nonsmoked_today_total = user.banks.where("DATE(created_at) = ?", Date.today).where("value > 0").count
-    return @nonsmoked_today_total
+    @nonsmoked_today_total
   end
 
   def self.money_spent_week(user)
     @money_spent_week = (user.banks.where("created_at >= :start AND created_at < :end",
                    :start => 1.week.ago.to_date,
                    :end   => Time.now).where("value < 0 ").sum(:value)).abs
-    return @money_spent_week
+    @money_spent_week
   end
 
   def self.smoked_week(user)
     @smoked_week_total = user.banks.where("created_at >= :start AND created_at < :end",
                        :start => 1.week.ago.to_date,
                        :end   => Time.now).where("value < 0 ").count
-    return @smoked_week_total
+    @smoked_week_total
   end
 
   def self.money_saved_week(user)
     @money_saved_week = user.banks.where("created_at >= :start AND created_at < :end",
                        :start => 1.week.ago.to_date,
                        :end   => Time.now).where("value > 0 ").sum(:value)
-    return @money_saved_week
+    @money_saved_week
   end
 
   def self.nonsmoked_week(user)
     @nonsmoked_week_total = user.banks.where("created_at >= :start AND created_at < :end",
                        :start => 1.week.ago.to_date,
                        :end   => Time.now).where("value > 0 ").count
-    return @nonsmoked_week_total
+    @nonsmoked_week_total
   end
 
   def self.money_spent_alltime(user)
-    @money_spent_alltime = (user.banks.where("value < 0").sum(:value)).abs
-    return @money_spent_alltime
+    @money_spent_alltime = user.banks.where("value < 0").sum(:value).abs
+    @money_spent_alltime
   end
 
   def self.smoked_alltime(user)
     @smoked_alltime = user.banks.where("value < 0").count
-    return @smoked_alltime
+    @smoked_alltime
   end
 
   def self.money_saved_alltime(user)
     @money_saved_alltime = user.banks.where("value > 0").sum(:value)
-    return @money_saved_alltime
+    @money_saved_alltime
   end
 
   def self.nonsmoked_alltime(user)
     @nonsmoked_alltime = user.banks.where("value > 0").count
-    return @nonsmoked_alltime
+    @nonsmoked_alltime
   end
 
   def self.time_seconds(user)
