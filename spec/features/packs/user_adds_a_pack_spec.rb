@@ -2,6 +2,7 @@ require "rails_helper"
 
 feature "user adds a pack of cigarettes" do
   let!(:user) { FactoryGirl.create(:user) }
+  let!(:bank) { FactoryGirl.create(:bank) }
 
   before(:each) do
     visit user_session_path
@@ -16,6 +17,14 @@ feature "user adds a pack of cigarettes" do
     click_button "Enter"
 
     expect(page).to have_content("Pack updated!")
+  end
+
+  scenario "user doesn't enter a price for a pack of cigarettes" do
+    visit new_pack_path
+    fill_in "Price per pack locally:", with: ""
+    click_button "Enter"
+
+    expect(page).to have_content("Please enter the price of a pack of cigarettes.")
   end
 
   scenario "non-user tries to add a pack of cigarettes" do
