@@ -2,14 +2,14 @@ class CigsController < ApplicationController
   def positive
     @bank = Bank.new(user: current_user, value: getprice)
     @bank.save
-    flash[:notice] = "Insert: Encouragement Quote"
+    flash[:notice] = "QUOTE"
     redirect_to banks_path
   end
 
   def negative
     @bank = Bank.new(user: current_user, value: ((getprice) * -1))
     @bank.save
-    flash[:notice] = "Insert: Encouragement Quote"
+    flash[:notice] = "QUOTE"
     redirect_to banks_path
   end
 
