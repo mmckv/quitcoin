@@ -9,7 +9,7 @@ Phrase.create(quote: "You can never cross the ocean until you have the courage t
 Phrase.create(quote: "Either you run the day, or the day runs you.")
 Phrase.create(quote: "If you hear a voice within you say “you cannot paint,” then by all means paint and that voice will be silenced.")
 Phrase.create(quote: "Go confidently in the direction of your dreams.  Live the life you have imagined.")
-Phrase.create(quote: "Believe you can and you’re halfway there")
+Phrase.create(quote: "Believe you can and you’re halfway there.")
 Phrase.create(quote: "Start where you are. Use what you have.  Do what you can.")
 Phrase.create(quote: "Fall seven times and stand up eight.")
 Phrase.create(quote: "If the wind will not serve, take to the oars.")
@@ -29,3 +29,4 @@ Phrase.create(quote: "Nothing is impossible, the word itself says, “I’m poss
 Phrase.create(quote: "If you can dream it, you can achieve it.")
 Phrase.create(quote: "You are doing an awesome job!")
 Phrase.create(quote: "Keep up the hard work, it will pay off!")
+Phrase.create(quote: "If you can't run, walk. If you can't walk, crawl.")

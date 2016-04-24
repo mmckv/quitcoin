@@ -7,11 +7,20 @@ class BanksController < ApplicationController
         redirect_to new_pack_path
       else
         @stats = generatestats
+        @cighash = {}
+        @vars = create_cighash
         @total = current_user.total
       end
     else
       flash[:error] = "Please sign in."
       redirect_to new_user_session_path
+    end
+  end
+
+  def updatevalues
+    generatestats
+    respond_to do |format|
+      format.json { render json: create_cighash }
     end
   end
 
@@ -28,6 +37,7 @@ class BanksController < ApplicationController
     @smoked_today = Bank.smoked_today(current_user)
     @saved_today = Bank.money_saved_today(current_user)
     @nonsmoked_today = Bank.nonsmoked_today(current_user)
+    @net_today = (@saved_today - @spent_today)
 
     @spent_week = Bank.money_spent_week(current_user)
     @saved_week = Bank.money_saved_week(current_user)
@@ -44,5 +54,23 @@ class BanksController < ApplicationController
     @hours = Bank.time_seconds(current_user) / 3600
     @days = Bank.time_seconds(current_user) / 86400
     @weeks = Bank.time_seconds(current_user) / 604800
+  end
+
+  def create_cighash
+    @cighash = {}
+    @cighash[:minutes] = @minutes
+    @cighash[:hours] = @hours
+    @cighash[:days] = @days
+    @cighash[:weeks] = @weeks
+    @cighash[:smoked_today] = @smoked_today
+    @cighash[:nonsmoked_today] = @nonsmoked_today
+    @cighash[:net_today] = (@saved_today - @spent_today)
+    @cighash[:smoked_week] = @smoked_week
+    @cighash[:nonsmoked_week] = @nonsmoked_week
+    @cighash[:net_week] = (@saved_week - @spent_week)
+    @cighash[:smoked_alltime] = @smoked_alltime
+    @cighash[:nonsmoked_alltime] = @nonsmoked_alltime
+    @cighash[:net_alltime] = (@saved_alltime - @spent_alltime)
+    @cighash
   end
 end

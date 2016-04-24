@@ -84,6 +84,5 @@ class Bank < ActiveRecord::Base
       else
         @time = 1
       end
-
   end
 end
