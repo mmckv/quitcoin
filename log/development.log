@@ -33156,3 +33156,251 @@ Processing by BanksController#index as HTML
   [1m[35mBank Load (0.8ms)[0m  SELECT "banks".* FROM "banks" WHERE "banks"."user_id" = $1  [["user_id", 2]]
   Rendered banks/index.html.erb within layouts/application (0.8ms)
 Completed 200 OK in 245ms (Views: 209.3ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/" for ::1 at 2016-04-24 11:16:19 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BanksController#index as HTML
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.8ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (1.7ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.6ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:20.851469') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:20.853857') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:20.855951') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:20.858036') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.7ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35mBank Load (1.3ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mBank Load (0.8ms)[0m  [1mSELECT "banks".* FROM "banks" WHERE "banks"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered banks/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 2596ms (Views: 2210.3ms | ActiveRecord: 59.8ms)
+
+
+Started GET "/" for ::1 at 2016-04-24 11:16:23 -0400
+Processing by BanksController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.6ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (0.7ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)[0m  [["user_id", 2]]
+  [1m[35m (0.6ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:23.138333') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:23.140307') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:23.142619') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:23.145029') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35mBank Load (0.8ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mBank Load (1.0ms)[0m  [1mSELECT "banks".* FROM "banks" WHERE "banks"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered banks/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 193ms (Views: 155.2ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/cigs/positive" for ::1 at 2016-04-24 11:16:25 -0400
+Processing by CigsController#positive as HTML
+  Parameters: {"authenticity_token"=>"s8Fk3kE43DM6o5AHOUDTz2dTyBS033BBSd7C1/CSSmq4LgiiqeA9M2CJ9BW13LrJ3g1hOH9uThs2+hWJhrKAkg=="}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.6ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (42.1ms)[0m  [1mINSERT INTO "banks" ("user_id", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["value", "0.4715"], ["created_at", "2016-04-24 15:16:26.035625"], ["updated_at", "2016-04-24 15:16:26.035625"]]
+  [1m[35m (12.0ms)[0m  COMMIT
+  [1m[36mPhrase Load (1.2ms)[0m  [1mSELECT "phrases".* FROM "phrases"[0m
+Redirected to http://localhost:3000/banks
+Completed 302 Found in 130ms (ActiveRecord: 59.8ms)
+
+
+Started GET "/banks" for ::1 at 2016-04-24 11:16:26 -0400
+Processing by BanksController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.5ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (1.3ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)[0m  [["user_id", 2]]
+  [1m[35m (0.8ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)  [["user_id", 2]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.6ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:26.183583') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:26.186113') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:26.188520') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:26.190943') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.9ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.8ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35mBank Load (0.7ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mBank Load (0.8ms)[0m  [1mSELECT "banks".* FROM "banks" WHERE "banks"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered banks/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 236ms (Views: 185.0ms | ActiveRecord: 11.6ms)
+
+
+Started POST "/cigs/positive" for ::1 at 2016-04-24 11:16:30 -0400
+Processing by CigsController#positive as HTML
+  Parameters: {"authenticity_token"=>"PLRyYM7P3bLIPqHwVvh3Budx4lOcKSizMaWPnhrPAwU3Wx4cJhc8spIUxeLaZB4AXi9Lf1eYFulOgVjAbO/J/Q=="}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.5ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "banks" ("user_id", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["value", "0.4715"], ["created_at", "2016-04-24 15:16:30.586369"], ["updated_at", "2016-04-24 15:16:30.586369"]]
+  [1m[35m (32.1ms)[0m  COMMIT
+  [1m[36mPhrase Load (0.7ms)[0m  [1mSELECT "phrases".* FROM "phrases"[0m
+Redirected to http://localhost:3000/banks
+Completed 302 Found in 45ms (ActiveRecord: 34.9ms)
+
+
+Started GET "/banks" for ::1 at 2016-04-24 11:16:30 -0400
+Processing by BanksController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.7ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (0.6ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:30.646233') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:30.648142') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:30.650137') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:30.652035') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.4ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35mBank Load (0.6ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mBank Load (0.8ms)[0m  [1mSELECT "banks".* FROM "banks" WHERE "banks"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered banks/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 174ms (Views: 137.5ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/cigs/positive" for ::1 at 2016-04-24 11:16:31 -0400
+Processing by CigsController#positive as HTML
+  Parameters: {"authenticity_token"=>"UXIJeS60wfLtE17Fc7XYVMS1ENg9M29P14Fq+Dtq9iRanWUFxmwg8rc5Otf/KbFSfeu59PaCURWopb2mTUo83A=="}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.4ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "banks" ("user_id", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["value", "0.4715"], ["created_at", "2016-04-24 15:16:31.953765"], ["updated_at", "2016-04-24 15:16:31.953765"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36mPhrase Load (0.6ms)[0m  [1mSELECT "phrases".* FROM "phrases"[0m
+Redirected to http://localhost:3000/banks
+Completed 302 Found in 13ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/banks" for ::1 at 2016-04-24 11:16:31 -0400
+Processing by BanksController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.5ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (0.8ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)  [["user_id", 2]]
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)[0m  [["user_id", 2]]
+  [1m[35m (1.0ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)  [["user_id", 2]]
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.9ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:31.988351') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.7ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:31.992405') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:31.995038') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:31.997520') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.7ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35mBank Load (0.9ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mBank Load (0.9ms)[0m  [1mSELECT "banks".* FROM "banks" WHERE "banks"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered banks/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 218ms (Views: 165.7ms | ActiveRecord: 12.1ms)
+
+
+Started POST "/cigs/negative" for ::1 at 2016-04-24 11:16:32 -0400
+Processing by CigsController#negative as HTML
+  Parameters: {"authenticity_token"=>"AZIBnUM4aPXjNHhUxxEFT2dx6/EatyzCrrKeDjQqaJoKfW3hq+CJ9bkeHEZLjWxJ3i9C3dEGEpjRlklQQgqiYg=="}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.4ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "banks" ("user_id", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["value", "-0.4715"], ["created_at", "2016-04-24 15:16:32.796347"], ["updated_at", "2016-04-24 15:16:32.796347"]]
+  [1m[35m (11.8ms)[0m  COMMIT
+  [1m[36mPhrase Load (0.6ms)[0m  [1mSELECT "phrases".* FROM "phrases"[0m
+Redirected to http://localhost:3000/banks
+Completed 302 Found in 23ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/banks" for ::1 at 2016-04-24 11:16:32 -0400
+Processing by BanksController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.5ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (0.7ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)[0m  [["user_id", 2]]
+  [1m[35m (0.8ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)  [["user_id", 2]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (2.4ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:32.838143') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.7ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:32.842828') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:32.845630') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:32.848040') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35mBank Load (0.8ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mBank Load (1.1ms)[0m  [1mSELECT "banks".* FROM "banks" WHERE "banks"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered banks/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 193ms (Views: 146.8ms | ActiveRecord: 12.5ms)
+
+
+Started POST "/cigs/negative" for ::1 at 2016-04-24 11:16:33 -0400
+Processing by CigsController#negative as HTML
+  Parameters: {"authenticity_token"=>"q9+L6fXu4EjpJYd5YNcKS12UFHwFwoCYvUifRU3t0LGgMOeVHTYBSLMP42vsS2NN5Mq9UM5zvsLCbEgbO80aSQ=="}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.5ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "banks" ("user_id", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["value", "-0.4715"], ["created_at", "2016-04-24 15:16:33.492010"], ["updated_at", "2016-04-24 15:16:33.492010"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mPhrase Load (0.6ms)[0m  [1mSELECT "phrases".* FROM "phrases"[0m
+Redirected to http://localhost:3000/banks
+Completed 302 Found in 13ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/banks" for ::1 at 2016-04-24 11:16:33 -0400
+Processing by BanksController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPack Load (0.4ms)[0m  [1mSELECT  "packs".* FROM "packs" WHERE "packs"."user_id" = $1 AND "packs"."active" = $2 LIMIT 1[0m  [["user_id", 2], ["active", "t"]]
+  [1m[35m (0.6ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value < 0)[0m  [["user_id", 2]]
+  [1m[35m (0.4ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)  [["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (DATE(created_at) = '2016-04-24') AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.7ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:33.515627') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:33.521028') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:33.523413') AND (value < 0 )  [["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (created_at >= '2016-04-17' AND created_at < '2016-04-24 15:16:33.525753') AND (value > 0 )[0m  [["user_id", 2]]
+  [1m[35m (0.4ms)[0m  SELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mSELECT SUM("banks"."value") FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value < 0)  [["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "banks" WHERE "banks"."user_id" = $1 AND (value > 0)[0m  [["user_id", 2]]
+  [1m[35mBank Load (1.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "banks".* FROM "banks" WHERE (value < 0)  ORDER BY "banks"."created_at" DESC LIMIT 1
+  [1m[36mBank Load (0.8ms)[0m  [1mSELECT "banks".* FROM "banks" WHERE "banks"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered banks/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 208ms (Views: 166.3ms | ActiveRecord: 8.6ms)
