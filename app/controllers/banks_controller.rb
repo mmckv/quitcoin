@@ -9,7 +9,7 @@ class BanksController < ApplicationController
         @stats = generatestats
         @cighash = {}
         @vars = create_cighash
-        @total = current_user.total
+        @total = "%.2f" % current_user.total
       end
     else
       flash[:error] = "Please sign in."
@@ -57,20 +57,24 @@ class BanksController < ApplicationController
   end
 
   def create_cighash
+    @phrases = Phrase.all
+    @rand = rand(@phrases.length)
+    @quote = @phrases[@rand]["quote"]
     @cighash = {}
+    @cighash[:quote] = @quote
     @cighash[:minutes] = @minutes
     @cighash[:hours] = @hours
     @cighash[:days] = @days
     @cighash[:weeks] = @weeks
     @cighash[:smoked_today] = @smoked_today
     @cighash[:nonsmoked_today] = @nonsmoked_today
-    @cighash[:net_today] = (@saved_today - @spent_today)
+    @cighash[:net_today] = "%.2f" % (@saved_today - @spent_today)
     @cighash[:smoked_week] = @smoked_week
     @cighash[:nonsmoked_week] = @nonsmoked_week
-    @cighash[:net_week] = (@saved_week - @spent_week)
+    @cighash[:net_week] = "%.2f" % (@saved_week - @spent_week)
     @cighash[:smoked_alltime] = @smoked_alltime
     @cighash[:nonsmoked_alltime] = @nonsmoked_alltime
-    @cighash[:net_alltime] = (@saved_alltime - @spent_alltime)
+    @cighash[:net_alltime] = "%.2f" % (@saved_alltime - @spent_alltime)
     @cighash
   end
 end

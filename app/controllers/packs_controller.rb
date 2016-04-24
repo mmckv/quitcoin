@@ -1,7 +1,7 @@
 class PacksController < ApplicationController
   def new
     @pack = Pack.new
-    @total = current_user.total
+    @total = "%.2f" % current_user.total
   end
 
   def create
@@ -20,7 +20,6 @@ class PacksController < ApplicationController
       end
       @pack.active = true
       @pack.save
-      flash[:notice] = "Pack updated!"
       redirect_to banks_path
     else
       flash[:notice] = "Please enter the price of a pack of cigarettes."
@@ -36,7 +35,6 @@ class PacksController < ApplicationController
   def update
     @pack = Pack.find(params[:id])
     if @pack.update_attributes(pack_params)
-      flash[:notice] = "Pack price updated successfully."
     else
       flash[:error] = @pack.errors.full_messages.join(". ")
     end

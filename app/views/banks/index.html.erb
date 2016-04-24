@@ -1,3 +1,7 @@
+<div id="quote">
+  <%= @quote %>
+</div>
+
 <div id="inline-content">
   <li class="neg"><%= button_to "-", negative_cigs_path, method: :post %></li>
   <li class="pos"><%= button_to "+", positive_cigs_path, method: :post %></li>
@@ -24,8 +28,8 @@
 <div class="small-12 medium-4 column">
   <ul>
     <li><strong>TODAY</strong></li>
-    Smoked: <li id="smoked_today"><%= @smoked_today %></li>
     Resisted: <li id="nonsmoked_today"><%= @nonsmoked_today %></li>
+    Smoked: <li id="smoked_today"><%= @smoked_today %></li>
     Net Bank: $<li id="net_today"><%= "%.2f" % (@saved_today - @spent_today) %></li>
   </ul>
 </div>
@@ -33,8 +37,8 @@
 <div class="small-12 medium-4 column">
   <ul>
     <li><strong>THIS WEEK</strong></li>
-    Smoked: <li id="smoked_week"><%= @smoked_week %></li>
     Resisted: <li id="nonsmoked_week"><%= @nonsmoked_week %></li>
+    Smoked: <li id="smoked_week"><%= @smoked_week %></li>
     Net Bank: $<li id="net_week"><%= "%.2f" % (@saved_week - @spent_week) %></li>
   </ul>
 </div>
@@ -42,9 +46,8 @@
 <div class="small-12 medium-4 column">
   <ul>
     <li><strong>ALL TIME</strong></li>
-    Smoked: <li id="smoked_alltime"><%= @smoked_alltime %></li>
     Resisted: <li id="nonsmoked_alltime"><%= @nonsmoked_alltime %></li>
+    Smoked: <li id="smoked_alltime"><%= @smoked_alltime %></li>
     Net Bank: $<li id="net_alltime"><%= "%.2f" % (@saved_alltime - @spent_alltime) %></li>
   </ul>
 </div>
-<%= javascript_include_tag "application" %>

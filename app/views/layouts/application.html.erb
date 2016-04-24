@@ -10,33 +10,33 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-      <ul class="menu">
-        <div id="inline-content">
-          Bank $<li class="bank"><%= "%.2f" % @total if current_user %></li>
-        </div>
-          <% if controller_name == "banks" && action_name == "index" %>
-            <li><%= link_to "Progress", "#" if current_user %></li>
-          <% else %>
-          <% end %>
-      </ul>
-
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li>
-            <a href="#">Menu</a>
-              <ul class="menu">
-                <li><%= link_to "Update pack cost", new_pack_path if current_user %></li>
-                <li><%= link_to "Sign up", new_user_registration_path unless current_user %></li>
-                <li><%= link_to "Sign in", new_user_session_path, method: :get if !current_user %></li>
-                <li><%= link_to "Sign out", destroy_user_session_path, method: :delete if current_user %></li>
-              </ul>
-          </li>
+    <body>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+        <ul class="menu">
+          <div id="inline-content">
+            <li class="bank-title"><%= "Bank $" if current_user %></li><li class="bank"><%= "%.2f" % @total if current_user %></li>
+          </div>
+            <% if controller_name == "banks" && action_name == "index" %>
+              <li><%= link_to "Progress", "#" if current_user %></li>
+            <% else %>
+            <% end %>
         </ul>
 
-      <div class = row column>
-        <%= yield %>
-      </div>
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li>
+              <a href="#">Menu</a>
+                <ul class="menu">
+                  <li><%= link_to "Update pack cost", new_pack_path if current_user %></li>
+                  <li><%= link_to "Sign up", new_user_registration_path unless current_user %></li>
+                  <li><%= link_to "Sign in", new_user_session_path, method: :get if !current_user %></li>
+                  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete if current_user %></li>
+                </ul>
+            </li>
+          </ul>
+        <div class = row column>
+          <%= yield %>
+        </div>
+        <%= javascript_include_tag "application" %>
   </body>
 </html>
