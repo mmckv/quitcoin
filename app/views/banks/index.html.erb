@@ -2,15 +2,18 @@
   <%= @quote %>
 </div>
 
-<div id="inline-content">
-  <li class="neg"><%= button_to "-", negative_cigs_path, method: :post %></li>
-  <li class="pos"><%= button_to "+", positive_cigs_path, method: :post %></li>
+<div class="span_12 column">
+  <div id="inline-content">
+    <li class="neg"><%= button_to "-", negative_cigs_path, method: :post %></li>
+    <li class="pos"><%= button_to "+", positive_cigs_path, method: :post %></li>
+  </div>
 </div>
-
-<h3>PROGRESS</h3>
 
 <div class="span_12 column">
   <ul>
+  </br>
+    <li><strong>PROGRESS</strong></li>
+  </br>
     <li><strong>TIME SINCE YOUR LAST CIGARETTE</strong></li>
     Minutes: <li id="minutes"><%= @minutes %></li>
     <% if @hours > 0 %>
