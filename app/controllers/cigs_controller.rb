@@ -2,14 +2,18 @@ class CigsController < ApplicationController
   def positive
     @bank = Bank.new(user: current_user, value: getprice)
     @bank.save
-    flash[:notice] = "QUOTE"
+    @phrases = Phrase.all
+    @rand = rand(@phrases.length)
+    flash[:notice] = @phrases[@rand]["quote"]
     redirect_to banks_path
   end
 
   def negative
     @bank = Bank.new(user: current_user, value: ((getprice) * -1))
     @bank.save
-    flash[:notice] = "QUOTE"
+    @phrases = Phrase.all
+    @rand = rand(@phrases.length)
+    flash[:notice] = @phrases[@rand]["quote"]
     redirect_to banks_path
   end
 
