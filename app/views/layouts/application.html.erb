@@ -7,7 +7,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "quitcoin" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -15,7 +14,9 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
       <ul class="menu">
-        <li class="bank"><%="Bank $" "%.2f" % @total if current_user %></li>
+        <div id="inline-content">
+          Bank $<li class="bank"><%= "%.2f" % @total if current_user %></li>
+        </div>
           <% if controller_name == "banks" && action_name == "index" %>
             <li><%= link_to "Progress", "#" if current_user %></li>
           <% else %>

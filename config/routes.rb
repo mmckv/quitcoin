@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   root to: "banks#index"
   resources :packs
-  resources :banks
+  resources :banks do
+    collection do
+      post "updatevalues"
+    end
+  end
   resources :phrases
   resources :cigs do
     collection do

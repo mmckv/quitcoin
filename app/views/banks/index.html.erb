@@ -1,6 +1,6 @@
 <div id="inline-content">
-  <li><%= button_to "-", negative_cigs_path, method: :post %></li>
-  <li><%= button_to "+", positive_cigs_path, method: :post %></li>
+  <li class="neg"><%= button_to "-", negative_cigs_path, method: :post %></li>
+  <li class="pos"><%= button_to "+", positive_cigs_path, method: :post %></li>
 </div>
 
 <h3>PROGRESS</h3>
@@ -8,23 +8,15 @@
 <div class="span_12 column">
   <ul>
     <li><strong>TIME SINCE YOUR LAST CIGARETTE</strong></li>
-    <li>
-    Minutes: <%= @minutes %>
-    </li>
+    Minutes: <li id="minutes"><%= @minutes %></li>
     <% if @hours > 0 %>
-    <li>
-    Hours: <%= @hours %>
-    </li>
+    Hours: <li id="hours"><%= @hours %></li>
     <% end %>
     <% if @days > 0 %>
-    <li>
-    Days: <%= @days %>
-    </li>
+    Days: <li id="days"><%= @days %></li>
     <% end %>
     <% if @weeks > 0 %>
-    <li>
-    Weeks: <%= @weeks %>
-    </li>
+    Weeks: <li id="weeks"><%= @weeks %></li>
     <% end %>
   </ul>
 </div>
@@ -32,26 +24,27 @@
 <div class="small-12 medium-4 column">
   <ul>
     <li><strong>TODAY</strong></li>
-    <li>Smoked: <%= @smoked_today %></li>
-    <li>Resisted: <%= @nonsmoked_today %></li>
-    <li>Net Bank: $<%= "%.2f" % (@saved_today - @spent_today) %></li>
+    Smoked: <li id="smoked_today"><%= @smoked_today %></li>
+    Resisted: <li id="nonsmoked_today"><%= @nonsmoked_today %></li>
+    Net Bank: $<li id="net_today"><%= "%.2f" % (@saved_today - @spent_today) %></li>
   </ul>
 </div>
 
 <div class="small-12 medium-4 column">
   <ul>
     <li><strong>THIS WEEK</strong></li>
-    <li>Smoked: <%= @smoked_week %></li>
-    <li>Resisted: <%= @nonsmoked_week %></li>
-    <li>Net Bank: $<%= "%.2f" % (@saved_week - @spent_week) %></li>
+    Smoked: <li id="smoked_week"><%= @smoked_week %></li>
+    Resisted: <li id="nonsmoked_week"><%= @nonsmoked_week %></li>
+    Net Bank: $<li id="net_week"><%= "%.2f" % (@saved_week - @spent_week) %></li>
   </ul>
 </div>
 
 <div class="small-12 medium-4 column">
   <ul>
     <li><strong>ALL TIME</strong></li>
-    <li>Smoked: <%= @smoked_alltime %></li>
-    <li>Resisted: <%= @nonsmoked_alltime %></li>
-    <li>Net Bank: $<%= "%.2f" % (@saved_alltime - @spent_alltime) %></li>
+    Smoked: <li id="smoked_alltime"><%= @smoked_alltime %></li>
+    Resisted: <li id="nonsmoked_alltime"><%= @nonsmoked_alltime %></li>
+    Net Bank: $<li id="net_alltime"><%= "%.2f" % (@saved_alltime - @spent_alltime) %></li>
   </ul>
 </div>
+<%= javascript_include_tag "application" %>
