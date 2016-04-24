@@ -1,11 +1,11 @@
 $(".pos").on("submit", function(event) {
   event.preventDefault();
 
-var bankDisplay = $('.bank')[0];
+var bankDisplay = $(".bank")[0];
 
-  var request = $.ajax({
+  $.ajax({
     type: "POST",
-    url: '/cigs/positive',
+    url: "/cigs/positive",
     dataType: "json",
     success: function(response) {
       bankDisplay.textContent = response;
@@ -17,11 +17,11 @@ var bankDisplay = $('.bank')[0];
 $(".neg").on("submit", function(event) {
   event.preventDefault();
 
-var bankDisplay = $('.bank')[0];
+var bankDisplay = $(".bank")[0];
 
-  var request = $.ajax({
+  $.ajax({
     type: "POST",
-    url: '/cigs/negative',
+    url: "/cigs/negative",
     dataType: "json",
     success: function(response) {
       bankDisplay.textContent = response;
@@ -31,22 +31,18 @@ var bankDisplay = $('.bank')[0];
 });
 
 function parseHash(hash) {
-  Object.keys(hash).forEach(function(key,index){
-    $('#' + key).text(hash[key]);
+  Object.keys(hash).forEach(function(key){
+    $("#" + key).text(hash[key]);
   });
 }
 
-function requestHash()
-{
-  var request = $.ajax
-  (
-    {
-      type: "POST",
-      url: '/banks/updatevalues',
-      dataType: "json",
-      success: function(response) {
-        parseHash(response);
-      }
+function requestHash() {
+  $.ajax({
+    type: "POST",
+    url: "/banks/updatevalues",
+    dataType: "json",
+    success: function(response) {
+      parseHash(response);
     }
-  )
+  });
 }
