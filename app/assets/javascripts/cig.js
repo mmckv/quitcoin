@@ -8,7 +8,7 @@ var bankDisplay = $(".bank")[0];
     url: "/cigs/positive",
     dataType: "json",
     success: function(response) {
-      bankDisplay.textContent = response;
+      bankDisplay.textContent = response.total;
       requestHash();
     }
   });
@@ -24,7 +24,7 @@ var bankDisplay = $(".bank")[0];
     url: "/cigs/negative",
     dataType: "json",
     success: function(response) {
-      bankDisplay.textContent = response;
+      bankDisplay.textContent = response.total;
       requestHash();
     }
   });
@@ -32,7 +32,11 @@ var bankDisplay = $(".bank")[0];
 
 function parseHash(hash) {
   Object.keys(hash).forEach(function(key){
-    $("#" + key).text(hash[key]);
+    if (key=="quote") {
+      $("#"+ key).find(".trans-bgrd").text(hash[key]);
+    }  else {
+      $("#" + key).text(hash[key]);
+    }
   });
 }
 

@@ -1,7 +1,7 @@
 class PacksController < ApplicationController
   def new
     @pack = Pack.new
-    @total = "%.2f" % current_user.total
+    @sumbank = "%.2f" % current_user.total
   end
 
   def create

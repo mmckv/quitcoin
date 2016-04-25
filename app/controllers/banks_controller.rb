@@ -9,7 +9,7 @@ class BanksController < ApplicationController
         @stats = generatestats
         @cighash = {}
         @vars = create_cighash
-        @total = "%.2f" % current_user.total
+        @sumbank = "%.2f" % current_user.total
       end
     else
       flash[:error] = "Please sign in."

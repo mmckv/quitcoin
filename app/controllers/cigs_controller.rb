@@ -2,9 +2,10 @@ class CigsController < ApplicationController
   def positive
     @bank = Bank.new(user: current_user, value: getprice)
     @bank.save
-    @total = "%.2f" % current_user.total
+    @val = current_user.total
+    @sumbank = "%.2f" % @val
     respond_to do |format|
-      format.json { render json: @total }
+      format.json { render json: { total: @sumbank }}
       format.html { redirect_to banks_path }
     end
   end
@@ -12,10 +13,10 @@ class CigsController < ApplicationController
   def negative
     @bank = Bank.new(user: current_user, value: ((getprice) * -1))
     @bank.save
-    @float = current_user.total
-    @total = "%.2f" % @float
+    @val = current_user.total
+    @sumbank = "%.2f" % @val
     respond_to do |format|
-      format.json { render json: @total }
+      format.json { render json: { total: @sumbank }}
       format.html { redirect_to banks_path }
     end
   end
