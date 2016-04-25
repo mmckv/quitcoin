@@ -15,12 +15,20 @@
     </div>
   </div>
 
+  <div class="text-center" id="color-bar">
+    <div id="yellow"></div>
+    <div id="blue"></div>
+    <div id="red"></div>
+    <div id="green"></div>
+  </div>
+
 <div class="text-center">
   <ul>
   </br>
+  </br>
     <li><h1>PROGRESS</h1></li>
   </br>
-    <li><h2>TIME SINCE YOUR LAST CIGARETTE</h2></li>
+    <li><h1>TIME SINCE YOUR LAST CIGARETTE</h1></li>
     minutes <li id="minutes"><%= @minutes %></li>
     <% if @hours >= 1 %>
     hours <li id="hours"><%= @hours %></li>
@@ -36,7 +44,7 @@
 
 <div class="small-12 medium-4 columns text-center">
   <ul>
-    <li><h2>TODAY</h2></li>
+    <li><h4>TODAY</h4></li>
     resisted <li id="nonsmoked_today"><%= @nonsmoked_today %></li>
     smoked <li id="smoked_today"><%= @smoked_today %></li>
     net bank $<li id="net_today"><%= "%.2f" % (@saved_today - @spent_today) %></li>
@@ -45,7 +53,7 @@
 
 <div class="small-12 medium-4 columns text-center">
   <ul>
-    <li><h2>THIS WEEK</h2></li>
+    <li><h5>THIS WEEK</h5></li>
     resisted <li id="nonsmoked_week"><%= @nonsmoked_week %></li>
     smoked <li id="smoked_week"><%= @smoked_week %></li>
     net bank $<li id="net_week"><%= "%.2f" % (@saved_week - @spent_week) %></li>
@@ -54,7 +62,7 @@
 
 <div class="small-12 medium-4 columns text-center">
   <ul>
-    <li><h2>ALL TIME</h2></li>
+    <li><h6>ALL TIME</h6></li>
     resisted <li id="nonsmoked_alltime"><%= @nonsmoked_alltime %></li>
     smoked <li id="smoked_alltime"><%= @smoked_alltime %></li>
     net bank $<li id="net_alltime"><%= "%.2f" % (@saved_alltime - @spent_alltime) %></li>
