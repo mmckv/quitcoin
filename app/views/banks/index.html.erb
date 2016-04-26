@@ -28,8 +28,8 @@
   </br>
     <li><h1>PROGRESS</h1></li>
   </br>
-    <li><h1>TIME SINCE YOUR LAST CIGARETTE</h1></li>
-    minutes <li id="minutes"><%= @minutes %></li>
+    <li><h1>TIME SINCE YOUR LAST CIGARETTE</h1><% if @minutes >= 1 && @minutes <= 60 %></li>
+    minutes <li id="minutes"><%= @minutes %></li><% end %>
     <% if @hours >= 1 %>
     hours <li id="hours"><%= @hours %></li>
     <% end %>
