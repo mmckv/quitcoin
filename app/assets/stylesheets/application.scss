@@ -15,7 +15,10 @@
  *= require foundation
 
  */
- 
+
+ @import 'settings';
+ @import 'foundation';
+
 ul { list-style-type: none; }
 body { background-color: #232536; color: #FFFEFD; font-family: "Nunito"; font-size: 20px; }
 h1 { color: #fff; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
