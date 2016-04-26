@@ -50,3 +50,9 @@ function requestHash() {
     }
   });
 }
+
+var auto_refresh = setInterval(
+   function (){
+     $("#time").load("/banks #time").fadeIn("slow");
+   }, 60000
+ );
