@@ -33,7 +33,7 @@
     <% if @hours >= 1 %>
     hours <li id="hours"><%= @hours %></li>
     <% end %>
-    <% if @days >= 1 %>
+    <% if @days >= 1 && @days <= 7 %>
     days <li id="days"><%= @days %></li>
     <% end %>
     <% if @weeks >= 1 %>
