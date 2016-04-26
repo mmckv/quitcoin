@@ -29,7 +29,7 @@ class PacksController < ApplicationController
 
   def edit
     @pack = Pack.find(params[:id])
-    @total = current_user.total
+    @sumbank = current_user.total
   end
 
   def update

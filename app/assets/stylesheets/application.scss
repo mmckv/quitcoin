@@ -29,11 +29,21 @@ h4 { color: #0FA9AB; font-family: "Nunito"; font-size: 26px; font-weight: bold; 
 h5 { color: #E64C66; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
 h6 { color: #46C9F2; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
 
-a { color: #50587B; }
-a:hover { color: #FFFEFD; }
+a { color: #50587B; font-weight: bold; font-size: 22px; }
+a:hover { color: #FFFEFD; font-weight: bold; font-size: 22px; }
 
 #bank {
   color: #50587B; font-family: "Nunito"; font-size: 26px; font-weight: bold;
+}
+
+.actions {
+  color: #50587B;
+  font-weight: bold;
+}
+
+.is-submenu-item {
+  background-color: #232536;
+  border-color: #232536;
 }
 
 #logo {
@@ -48,18 +58,24 @@ a:hover { color: #FFFEFD; }
   width: 100%;
   padding: 5%;
   font-size: 20px;
-  font-weight: bold;
   color: #fff;
   background-color: #E64C66;
 }
 
 .trans-bgrd {
   padding: 5%;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  background-color: #E55171;
-  border: 2px solid #fff;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  color: #fff;
+  margin: auto 5%;
+  background-color: #CC324C;
+}
+
+.trans-bgrd label {
+  color: #fff;
+  font-family: "Nunito";
+  font-size: 20px;
 }
 
 #buttons {
@@ -72,9 +88,13 @@ a:hover { color: #FFFEFD; }
 .content {
   height: 90%;
   width: 80%;
-  margin:10% auto;
+  margin: 7% auto;
   background-color: #232536;
   max-width: 1000px;
+}
+
+.menu {
+  height: auto;
 }
 
 .inline-content *{
@@ -100,7 +120,7 @@ a:hover { color: #FFFEFD; }
   height: 9px;
   background-color: #46C9F2;
   display: inline-block;
-float: left;
+  float: left;
 }
 
 #red {
@@ -117,4 +137,9 @@ float: left;
   background-color: #0FA9AB;
   display: inline-block;
   float: left;
+}
+
+#top-btn {
+padding: 10% 0 0 0;
+ clear: both;
 }

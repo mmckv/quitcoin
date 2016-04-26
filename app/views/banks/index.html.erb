@@ -3,42 +3,44 @@
 </div>
 
 <div class="text-center" id="quote">
-  <div class="trans-bgrd">
+  <div class="trans-bgrd text-center">
     <%= @quote %>
   </div>
 </div>
 
-  <div class="text-center" id="buttons">
-    <div class="inline-content">
-      <li class="neg"><%= button_to "-", negative_cigs_path, method: :post %></li>
-      <li class="pos"><%= button_to "+", positive_cigs_path, method: :post %></li>
-    </div>
+<div class="text-center" id="buttons">
+  <div class="inline-content">
+    <li class="neg"><%= button_to "-", negative_cigs_path, method: :post %></li>
+    <li class="pos"><%= button_to "+", positive_cigs_path, method: :post %></li>
   </div>
+</div>
 
-  <div class="text-center" id="color-bar">
-    <div id="yellow"></div>
-    <div id="blue"></div>
-    <div id="red"></div>
-    <div id="green"></div>
-  </div>
+<div class="text-center" id="color-bar">
+  <div id="yellow"></div>
+  <div id="blue"></div>
+  <div id="red"></div>
+  <div id="green"></div>
+</div>
 
 <div class="text-center" id="time">
   <ul>
-  </br>
-  </br>
-    <li><h1>PROGRESS</h1></li>
-  </br>
-    <li><h1>TIME SINCE YOUR LAST CIGARETTE</h1><% if @minutes >= 1 && @minutes <= 60 %></li>
-    minutes <li id="minutes"><%= @minutes %></li><% end %>
-    <% if @hours >= 1 %>
-    hours <li id="hours"><%= @hours %></li>
-    <% end %>
-    <% if @days >= 1 && @days <= 7 %>
-    days <li id="days"><%= @days %></li>
-    <% end %>
-    <% if @weeks >= 1 %>
-    weeks <li id="weeks"><%= @weeks %></li>
-    <% end %>
+    </br>
+    </br>
+    <section id ="first" data-magellan-target="first">
+      <li><h1>PROGRESS</h1></li>
+      </br>
+      <% if @minutes >= 1 && @minutes <= 60 %><li><h1>TIME SINCE YOUR LAST CIGARETTE</h1></li><% end %><% if @minutes >= 1 && @minutes <= 60 %>
+      minutes <li id="minutes"><%= @minutes %></li><% end %>
+      <% if @hours >= 1 %>
+      hours <li id="hours"><%= @hours %></li>
+      <% end %>
+      <% if @days >= 1 && @days <= 7 %>
+      days <li id="days"><%= @days %></li>
+      <% end %>
+      <% if @weeks >= 1 %>
+      weeks <li id="weeks"><%= @weeks %></li>
+      <% end %>
+    </section>
   </ul>
 </div>
 

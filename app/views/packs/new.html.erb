@@ -1,38 +1,49 @@
-<% if current_user %>
-  <%= form_for @pack do |f| %>
-    <div class="row">
-      <%= f.label :price_pack, "How much do you pay for a pack of cigarettes?" %>
-      <%= f.text_field :price_pack %>
-    </div>
+<div id="logo">
+  <img src="/assets/logo.png">
+</div>
 
-    <div>
-      <%= f.submit "Enter" %>
-    </div>
-  <% end %>
-<% else %>
-  <h2>Log in</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-    </div>
+<div class="text-center" id="quote">
+  <div class="trans-bgrd text-center">
+    <% if current_user %>
+      <%= form_for @pack do |f| %>
+        <div class="row">
+          <%= f.label :price_pack, "How much do you pay for a pack of cigarettes?" %>
+          <%= f.text_field :price_pack %>
+        </div>
+        <div>
+          <%= f.submit "Enter" %>
+        </div>
+      <% end %>
+    <% else %>
+      <h2>Please log in.</h2>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
 
-    <% if devise_mapping.rememberable? -%>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end -%>
+        <div class="actions">
+          <%= f.submit "Log in" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-    <div class="actions">
-      <%= f.submit "Log in" %>
-    </div>
-  <% end %>
+<div class="text-center" id="buttons">
+  <div class="inline-content">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
 
-  <%= render "devise/shared/links" %>
-<% end %>
+<div class="text-center" id="color-bar">
+  <div id="yellow"></div>
+  <div id="blue"></div>
+  <div id="red"></div>
+  <div id="green"></div>
+</div>

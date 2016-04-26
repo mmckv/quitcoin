@@ -1,29 +1,49 @@
-<h2>Sign up</h2>
+<div id="logo">
+  <img src="/assets/logo.png">
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="text-center" id="quote">
+  <div class="trans-bgrd text-center">
+    <h2>Please register with us.</h2>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "off" %>
+<div class="text-center" id="buttons">
+  <div class="inline-content">
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </br>
+  </br>
+    </div>
+  <% end %>
   </div>
+  <%= render "devise/shared/links" %>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="text-center" id="color-bar">
+  <div id="yellow"></div>
+  <div id="blue"></div>
+  <div id="red"></div>
+  <div id="green"></div>
+</div>
