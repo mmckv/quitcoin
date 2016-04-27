@@ -31,7 +31,7 @@
       </br>
       <% if @minutes >= 1 && @minutes <= 60 %><li><h1>TIME SINCE YOUR LAST CIGARETTE</h1></li><% end %><% if @minutes >= 1 && @minutes <= 60 %>
       minutes <li id="minutes"><%= @minutes %></li><% end %>
-      <% if @hours >= 1 %>
+      <% if @hours > 0 %>
       hours <li id="hours"><%= @hours %></li>
       <% end %>
       <% if @days >= 1 && @days <= 7 %>
