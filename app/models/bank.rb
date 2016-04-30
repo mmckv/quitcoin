@@ -20,7 +20,7 @@ class Bank < ActiveRecord::Base
 
   def self.money_saved_today(user)
     @money_saved_today = user.banks.where("DATE(created_at) = ?", Date.today).where("value > 0").sum(:value) || 0
-
+    @money_saved_today
   end
 
   def self.nonsmoked_today(user)

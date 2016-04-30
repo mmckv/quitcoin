@@ -37,7 +37,6 @@ class BanksController < ApplicationController
     @smoked_today = Bank.smoked_today(current_user)
     @saved_today = Bank.money_saved_today(current_user)
     @nonsmoked_today = Bank.nonsmoked_today(current_user)
-    @net_today = (@saved_today - @spent_today)
 
     @spent_week = Bank.money_spent_week(current_user)
     @saved_week = Bank.money_saved_week(current_user)

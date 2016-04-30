@@ -29,7 +29,9 @@
     <section id ="first" data-magellan-target="first">
       <li><h1>PROGRESS</h1></li>
       </br>
-      <% if @minutes > 0 && @minutes <= 60 %><li><h1>TIME SINCE YOUR LAST CIGARETTE</h1></li><% end %><% if @minutes > 0 && @minutes <= 60 %>
+      <% if @minutes > 0 && @minutes <= 60 %><li><h1>TIME SINCE YOUR LAST CIGARETTE</h1></li>
+      <% end %>
+      <% if @minutes > 0 && @minutes <= 60 %>
       minutes <li id="minutes"><%= @minutes %></li><% end %>
       <% if @hours > 0 %>
       hours <li id="hours"><%= @hours %></li>
