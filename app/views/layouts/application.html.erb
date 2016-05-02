@@ -4,7 +4,7 @@
     <link href='https://fonts.googleapis.com/css?family=Nunito:300' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "quitcoin" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "QuitCoin | Your smoking cessation buddy." %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= csrf_meta_tags %>
@@ -13,27 +13,29 @@
   <body>
     <section id="top" data-magellan-target="top">
       <div class="content">
-          <ul class="menu">
-            <div class="inline-content" id="bank">
-              <li class="bank-title"><h3><%= "Bank $" if current_user %></h3></li><li class="bank"><h3><%= @sumbank if current_user %></h3></li>
-            </div>
-              <% if controller_name == "banks" && action_name == "index" %>
-                <li data-magellan><h3><%= link_to "Progress", "#first" if current_user %></h3></li>
-              <% else %>
-              <% end %>
-          </ul>
-            <ul class="dropdown menu" data-dropdown-menu>
-              <li>
-                <a href="#">Menu</a>
-                  <ul class="menu">
-                    <li><%= link_to "Update pack cost", new_pack_path if current_user %></li>
-                    <li><%= link_to "Sign up", new_user_registration_path unless current_user %></li>
-                    <li><%= link_to "Sign in", new_user_session_path, method: :get if !current_user %></li>
-                    <li><%= link_to "Sign out", destroy_user_session_path, method: :delete if current_user %></li>
-                  </ul>
-              </li>
-            </ul>
+        <% if controller_name == "banks" && action_name == "index" %>
+          <li data-magellan><%= link_to "PROGRESS", "#first" if current_user %></li>
+        <% end %>
+
+        <% unless controller_name == "registrations" && action_name == "edit" %>
+          <div class="inline-content" id="bank">
+            <li class="bank-title"><h4><%= "BANK $" if current_user %></h4></li><li class="bank"><h4><%= @sumbank if current_user %></h4></li>
+          </div>
+        <% end %>
+
+        <ul class="vertical medium-horizontal menu" id="user">
+          <% unless controller_name == "banks" && action_name == "index" %>
+            <li><%= link_to "home", banks_path if current_user %></li>
+          <% end %>
+            <li><%= link_to "update pack cost", new_pack_path if current_user %></li>
+            <li><%= link_to "sign up", new_user_registration_path unless current_user %></li>
+            <li><%= link_to "sign in", new_user_session_path, method: :get if !current_user %></li>
+            <li><%= link_to "edit login", edit_user_registration_path, method: :get if current_user %></li>
+            <li><%= link_to "sign out", destroy_user_session_path, method: :delete if current_user %></li>
+        </ul>
+
           <%= yield %>
+
           <div class="text-center" id="top-btn">
             <img src="/assets/up.png"><strong></br><%= link_to "TOP", "#top" %></strong>
           </div>

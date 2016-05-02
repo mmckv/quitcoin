@@ -7,39 +7,17 @@
     <% if current_user %>
       <%= form_for @pack do |f| %>
         <div class="row">
-          <%= f.label :price_pack, "How much do you pay for a pack of cigarettes?" %>
+          How much do you pay for a pack of cigarettes?</br></br>
           <%= f.text_field :price_pack %>
         </div>
-        <div>
-          <%= f.submit "Enter" %>
-        </div>
-      <% end %>
-    <% else %>
-      <h2>Please log in.</h2>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :email %>
-          <%= f.email_field :email %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password %>
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "Log in" %>
-        </div>
-      <% end %>
-    <% end %>
   </div>
 </div>
 
 <div class="text-center" id="buttons">
-  <div class="inline-content">
-    <%= render "devise/shared/links" %>
-  </div>
+    <%= image_submit_tag("/assets/submit.png", class: "submit") %>
+    <% end %>
 </div>
+<% end %>
 
 <div class="text-center" id="color-bar">
   <div id="yellow"></div>
