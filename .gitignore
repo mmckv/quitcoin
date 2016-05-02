@@ -1,5 +1,5 @@
 /public/uploads
-/log/*.log
+/log/
 /tmp
 /coverage
 .DS_Store
