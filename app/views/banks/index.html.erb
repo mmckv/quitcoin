@@ -8,14 +8,16 @@
   </div>
 </div>
 
-<div class="text-center" id="buttons">
-  <div class="inline-content">
-    <li class="neg"><%= button_to "-", negative_cigs_path, method: :post %></li>
-    <li class="pos"><%= button_to "+", positive_cigs_path, method: :post %></li>
+<div class="text-center" id="buttons2">
+  <div class="left-button small-6 medium-6 columns text-center">
+    <%= link_to image_tag("left-button.png", class: "left"), positive_cigs_path, method: :post %>
+  </div>
+  <div class="right-button small-6 medium-6 columns text-center">
+    <%= link_to image_tag("right-button.png", class: "right"), positive_cigs_path, method: :post %>
   </div>
 </div>
 
-<div class="text-center" id="color-bar">
+<div class="text-center" id="color-bar2">
   <div id="yellow"></div>
   <div id="blue"></div>
   <div id="red"></div>
@@ -27,9 +29,8 @@
     </br>
     </br>
     <section id ="first" data-magellan-target="first">
-      <li><h1>PROGRESS</h1></li>
       </br>
-      <% if @minutes > 0 && @minutes <= 60 %><li><h1>TIME SINCE YOUR LAST CIGARETTE</h1></li>
+      <% if @minutes > 0 && @minutes <= 60 %><li><h3>TIME SINCE YOUR LAST CIGARETTE</h3></li>
       <% end %>
       <% if @minutes > 0 && @minutes <= 60 %>
       minutes <li id="minutes"><%= @minutes %></li><% end %>
@@ -49,26 +50,29 @@
 <div class="small-12 medium-4 columns text-center">
   <ul>
     <li><h4>TODAY</h4></li>
-    resisted <li id="nonsmoked_today"><%= @nonsmoked_today %></li>
-    smoked <li id="smoked_today"><%= @smoked_today %></li>
-    net bank $<li id="net_today"><%= "%.2f" % (@saved_today - @spent_today) %></li>
+  </br>
+      <li class="pos" id="nonsmoked_today"><%= @nonsmoked_today %></li></br>
+      <li class="neg" id="smoked_today"><%= @smoked_today %></li></br>
+      <span class="one"><h3>Net $<li id="net_today"><%= "%.2f" % (@saved_today - @spent_today) %></li></h3></span>
   </ul>
 </div>
 
 <div class="small-12 medium-4 columns text-center">
   <ul>
     <li><h5>THIS WEEK</h5></li>
-    resisted <li id="nonsmoked_week"><%= @nonsmoked_week %></li>
-    smoked <li id="smoked_week"><%= @smoked_week %></li>
-    net bank $<li id="net_week"><%= "%.2f" % (@saved_week - @spent_week) %></li>
+  </br>
+      <li class="pos" id="nonsmoked_week"><%= @nonsmoked_week %></li></br>
+      <li class="neg" id="smoked_week"><%= @smoked_week %></li></br>
+      <span class="one"><h3>Net $<li id="net_week"><%= "%.2f" % (@saved_week - @spent_week) %></li></h3></span>
   </ul>
 </div>
 
 <div class="small-12 medium-4 columns text-center">
   <ul>
     <li><h6>ALL TIME</h6></li>
-    resisted <li id="nonsmoked_alltime"><%= @nonsmoked_alltime %></li>
-    smoked <li id="smoked_alltime"><%= @smoked_alltime %></li>
-    net bank $<li id="net_alltime"><%= "%.2f" % (@saved_alltime - @spent_alltime) %></li>
+  </br>
+      <li class="pos" id="nonsmoked_alltime"><%= @nonsmoked_alltime %></li></br>
+      <li class="neg" id="smoked_alltime"><%= @smoked_alltime %></li></br>
+      <span class="one"><h3>Net $<li id="net_alltime"><%= "%.2f" % (@saved_alltime - @spent_alltime) %></li></h3></span>
   </ul>
 </div>

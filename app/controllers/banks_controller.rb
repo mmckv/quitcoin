@@ -3,7 +3,6 @@ class BanksController < ApplicationController
      if current_user
       @current_pack = current_user.packs.find_by(active: true)
       if @current_pack.nil?
-        flash[:notice] = "Please enter your local price for a pack of cigarettes."
         redirect_to new_pack_path
       else
         @stats = generatestats
@@ -12,7 +11,6 @@ class BanksController < ApplicationController
         @sumbank = "%.2f" % current_user.total
       end
     else
-      flash[:error] = "Please sign in."
       redirect_to new_user_session_path
     end
   end

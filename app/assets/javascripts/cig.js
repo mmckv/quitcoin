@@ -1,30 +1,30 @@
-$(".pos").on("submit", function(event) {
+$(".right").on("click", function(event) {
   event.preventDefault();
-
-var bankDisplay = $(".bank")[0];
+  event.stopPropagation();
+  var bankDisplay = $(".bank").first().find('h4');
 
   $.ajax({
     type: "POST",
     url: "/cigs/positive",
     dataType: "json",
     success: function(response) {
-      bankDisplay.textContent = response.total;
+      bankDisplay.text(response.total);
       requestHash();
     }
   });
 });
 
-$(".neg").on("submit", function(event) {
+$(".left").on("click", function(event) {
   event.preventDefault();
-
-var bankDisplay = $(".bank")[0];
+  event.stopPropagation();
+  var bankDisplay = $(".bank").first().find('h4');
 
   $.ajax({
     type: "POST",
     url: "/cigs/negative",
     dataType: "json",
     success: function(response) {
-      bankDisplay.textContent = response.total;
+      bankDisplay.text(response.total);
       requestHash();
     }
   });

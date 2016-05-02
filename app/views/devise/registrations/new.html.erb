@@ -17,7 +17,7 @@
       <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <p><em>(<%= @minimum_password_length %> characters minimum)</em></p>
         <% end %>
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
@@ -32,7 +32,7 @@
 <div class="text-center" id="buttons">
   <div class="inline-content">
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= image_submit_tag("/assets/submit.png", class: "submit") %>
     </br>
     </div>
   <% end %>

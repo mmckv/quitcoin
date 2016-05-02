@@ -1,7 +1,11 @@
 class PacksController < ApplicationController
   def new
-    @pack = Pack.new
-    @sumbank = "%.2f" % current_user.total
+    if current_user
+      @pack = Pack.new
+      @sumbank = "%.2f" % current_user.total
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
@@ -22,7 +26,6 @@ class PacksController < ApplicationController
       @pack.save
       redirect_to banks_path
     else
-      flash[:notice] = "Please enter the price of a pack of cigarettes."
       redirect_to new_pack_path
     end
   end

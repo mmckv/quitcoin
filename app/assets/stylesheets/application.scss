@@ -16,41 +16,54 @@
 
  */
 
- @import 'settings';
- @import 'foundation';
+@import 'settings';
+@import 'foundation';
+
+$dark-blue: #232536;
+$gray: #FFFEFD;
+$light-blue: #50587B;
+$lighter-blue: #394164;
+$dark-red: #CC324C;
+$light-red: #E64C66;
+$yellow: #F8B73A;
+$green: #0FA9AB;
+$baby-blue: #46C9F2;
+$white: #fff;
 
 ul { list-style-type: none; }
-body { background-color: #232536; color: #FFFEFD; font-family: "Nunito"; font-size: 20px; }
-h1 { color: #fff; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
-h2 { color: #FFFEFD; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
-h3 { color: #50587B; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
+li { list-style-type: none; }
+body { background-color: $dark-blue; color: $gray; font-family: "Nunito"; font-size: 20px; }
+h1 { color: $white; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
+h2 { color: $gray; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
+h3 { color: $light-blue; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
 
-h4 { color: #0FA9AB; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
-h5 { color: #E64C66; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
-h6 { color: #46C9F2; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
+h4 { color: $green; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
+h5 { color: $light-red; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
+h6 { color: $baby-blue; font-family: "Nunito"; font-size: 26px; font-weight: bold; }
+p { text-align: left; }
 
-a { color: #50587B; font-weight: bold; font-size: 22px; }
-a:hover { color: #FFFEFD; font-weight: bold; font-size: 22px; }
+a { color: $light-blue; font-weight: bold; font-size: 22px; }
+a:hover { color: $gray; font-weight: bold; font-size: 22px; }
+
+input, button :focus { outline:0 !important; }
 
 #bank {
-  color: #50587B; font-family: "Nunito"; font-size: 26px; font-weight: bold;
-}
-
-.actions {
-  color: #50587B;
+  color: $light-blue;
+  font-family: "Nunito";
+  font-size: 26px;
   font-weight: bold;
 }
 
-.is-submenu-item {
-  background-color: #232536;
-  border-color: #232536;
+.actions {
+  color: $light-blue;
+  font-weight: bold;
 }
 
 #logo {
   height: auto;
   width: 100%;
   padding: 5%;
-  background-color: #CC324C;
+  background-color: $dark-red;
 }
 
 #quote {
@@ -58,8 +71,8 @@ a:hover { color: #FFFEFD; font-weight: bold; font-size: 22px; }
   width: 100%;
   padding: 5%;
   font-size: 20px;
-  color: #fff;
-  background-color: #E64C66;
+  color: $white;
+  background-color: $light-red;
 }
 
 .trans-bgrd {
@@ -67,13 +80,13 @@ a:hover { color: #FFFEFD; font-weight: bold; font-size: 22px; }
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   border-radius: 15px;
-  color: #fff;
+  color: $white;
   margin: auto 5%;
-  background-color: #CC324C;
+  background-color: $dark-red;
 }
 
 .trans-bgrd label {
-  color: #fff;
+  color: $white;
   font-family: "Nunito";
   font-size: 20px;
 }
@@ -85,12 +98,34 @@ a:hover { color: #FFFEFD; font-weight: bold; font-size: 22px; }
   background-color: #394164;
 }
 
+#buttons2 {
+  width: 100%;
+  height: auto;
+  background-color: $lighter-blue;
+}
+
+.left-button {
+  background-color: $lighter-blue;
+  height: 100%;
+  padding: 5% 1% 5% 15%;
+}
+
+.right-button {
+  background-color: $lighter-blue;
+  height: 100%;
+  padding: 5% 15% 5% 1%;
+}
+
 .content {
   height: 90%;
-  width: 80%;
+  width: 70%;
   margin: 7% auto;
-  background-color: #232536;
+  background-color: $dark-blue;
   max-width: 1000px;
+}
+
+.one *{
+  display: inline;
 }
 
 .menu {
@@ -103,14 +138,20 @@ a:hover { color: #FFFEFD; font-weight: bold; font-size: 22px; }
 
 #color-bar {
   width: 100%;
-  height: 9px;;
+  height: 9px;
   margin-top: 4%;
+}
+
+#color-bar2 {
+  width: 100%;
+  height: 9px;
+  margin-top: 30%;
 }
 
 #yellow {
   width: 25%;
   height: 9px;
-  background-color: #F9B73A;
+  background-color: $yellow;
   display: inline-block;
   float: left;
 }
@@ -118,7 +159,7 @@ a:hover { color: #FFFEFD; font-weight: bold; font-size: 22px; }
 #blue{
   width: 25%;
   height: 9px;
-  background-color: #46C9F2;
+  background-color: $baby-blue;
   display: inline-block;
   float: left;
 }
@@ -126,7 +167,7 @@ a:hover { color: #FFFEFD; font-weight: bold; font-size: 22px; }
 #red {
   width: 25%;
   height: 9px;
-  background-color: #E64C66;
+  background-color: $light-red;
   display: inline-block;
   float: left;
 }
@@ -134,12 +175,56 @@ a:hover { color: #FFFEFD; font-weight: bold; font-size: 22px; }
 #green {
   width: 25%;
   height: 9px;
-  background-color: #0FA9AB;
+  background-color: $green;
   display: inline-block;
   float: left;
+}
+
+input#pack_price_pack {
+  text-align: right;
+  width: 40%;
+  margin: auto;
+}
+
+label#pack_price_pack {
+  margin: auto;
 }
 
 #top-btn {
 padding: 10% 0 0 0;
  clear: both;
+}
+
+.neg {
+  background-image: url("/assets/neg.png");
+  background-repeat: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 120px;
+  height: 105px;
+  margin: auto;
+  line-height: 105px;
+  vertical-align: middle;
+  font-weight: bold;
+  color: $gray;
+  font-size: 23px;
+}
+
+.pos {
+  background-image: url("/assets/pos.png");
+  background-repeat: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 120px;
+  height: 105px;
+  vertical-align: middle;
+  line-height: 105px;
+  margin: auto;
+  font-weight: bold;
+  color: $gray;
+  font-size: 23px;
 }
