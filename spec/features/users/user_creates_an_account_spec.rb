@@ -8,9 +8,10 @@ feature "user creates an account" do
   scenario "successfully creates an account" do
     visit new_user_registration_path
     fill_in "Email", with: "fakeuser@gmail.com"
+    save_and_open_page
     fill_in "Password", with: "12345678"
     fill_in "Password confirmation", with: "12345678"
-    click_button "Sign up"
+    page.find(".submit").click
 
     expect(page).to have_content("How much do you pay for a pack of cigarettes?")
   end
@@ -20,9 +21,9 @@ feature "user creates an account" do
     fill_in "Email", with: "blankuser@gmail.com"
     fill_in "Password", with: "123"
     fill_in "Password confirmation", with: "123"
-    click_button "Sign up"
+    page.find(".submit").click
 
-    expect(page).to have_content("Password is too short (minimum is 8 characters)")
+    expect(page).to have_content("Please register with us.")
   end
 
   scenario "submits form with non-matching password and password confirmation" do
@@ -30,8 +31,8 @@ feature "user creates an account" do
     fill_in "Email", with: "blankuser@gmail.com"
     fill_in "Password", with: "12345678"
     fill_in "Password confirmation", with: "92345678"
-    click_button "Sign up"
+    page.find(".submit").click
 
-    expect(page).to have_content("Password confirmation doesn't match Password")
+    expect(page).to have_content("Please register with us.")
   end
 end
