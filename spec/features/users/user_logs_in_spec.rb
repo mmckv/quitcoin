@@ -10,7 +10,7 @@ feature "user logs into account" do
     visit user_session_path
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
-    click_button "Log in"
+    page.find(".submit").click
 
     expect(page).to have_content("How much do you pay for a pack of cigarettes?")
   end
@@ -19,26 +19,26 @@ feature "user logs into account" do
     visit user_session_path
     fill_in "Email", with: ""
     fill_in "Password", with: ""
-    click_button "Log in"
+    page.find(".submit").click
 
-    expect(page).to have_content("Invalid email or password.")
+    expect(page).to have_content("Please log in.")
   end
 
   scenario "submits form with incorrect email" do
     visit user_session_path
     fill_in "Email", with: "notthefakeaccount@gmail.com"
     fill_in "Password", with: user.password
-    click_button "Log in"
+    page.find(".submit").click
 
-    expect(page).to have_content("Invalid email or password.")
+    expect(page).to have_content("Please log in.")
   end
 
   scenario "submits form with incorrect password" do
     visit user_session_path
     fill_in "Email", with: user.email
     fill_in "Password", with: "99999999"
-    click_button "Log in"
+    page.find(".submit").click
 
-    expect(page).to have_content("Invalid email or password.")
+    expect(page).to have_content("Please log in.")
   end
 end
